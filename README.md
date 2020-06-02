@@ -3,7 +3,7 @@
  * @author: xiangrong.liu
  * @Date: 2020-05-29 16:26:49
  * @LastEditors: xiangrong.liu
- * @LastEditTime: 2020-05-29 18:01:01
+ * @LastEditTime: 2020-06-02 13:10:27
 --> 
 # myleetcode
 
@@ -14,3 +14,8 @@
 - 栈：先进先出，js用Array模拟，进push，出pop
 - 队列：先进后出，js用Array模拟，进push，出shift
 
+分治法
+- 线段树
+- 求其
+
+动态规划
