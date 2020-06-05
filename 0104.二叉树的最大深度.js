@@ -3,8 +3,13 @@
  * @author: xiangrong.liu
  * @Date: 2020-06-04 17:04:51
  * @LastEditors: xiangrong.liu
- * @LastEditTime: 2020-06-04 20:13:57
+ * @LastEditTime: 2020-06-05 10:14:03
  */ 
+
+ /**
+  * 1. 主要还是要熟悉dfs、bfs的基本做法吧，看懂了才能理解这题还有101的操作
+  */
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -57,23 +62,12 @@ function dfs(node) {
     }
 }
 
-// function wfs(node) {
-//     let stack = [node]
-//     let depth = 0
-//     while(stack.length) {
-//         let currentNode = stack.shift()
-//         let currentDepth = map.get(currentNode)
-
-//         if (currentNode) {
-//             map.set(currentNode.left, currentDepth)
-//             stack.push(currentNode.left, currentNode.right)
-//         } else {
-//         }
-//     }
-//     return depth
-// }
-
 function wfs(node) {
+
+    if (!node) {
+        return 0
+    }
+
     let stack = [node]
     let depth = 0
     while(stack.length) {
