@@ -55,10 +55,47 @@
  */
 
 let prices = [7, 1, 5, 3, 6, 4]
-let prices = [1, 2, 3, 4, 5]
-let prices = [7, 6, 4, 3, 1]
+// let prices = [1, 2, 3, 4, 5]
+// let prices = [7, 6, 4, 3, 1]
 
 var maxProfit = function (prices) {
+    return bestSolution(prices)
+    // return mySolution(prices)
+};
+
+console.log(maxProfit(prices))
+
+function mySolution(prices) {
     let profits = 0
     let min = prices[0]
-};
+    let areaMax = 0
+
+    if (prices.length <= 1) {
+        return profits
+    } 
+
+    for (let i = 1; i < prices.length; i++) {
+
+        if (prices[i] < prices[i - 1]) {
+            min = prices[i]
+            profits += areaMax
+            areaMax = 0
+        } else {
+            areaMax = Math.max(areaMax, prices[i] - min)
+            if (i === prices.length - 1) {
+                profits += areaMax
+            }
+        }
+     }
+     return profits
+}
+
+function bestSolution(prices) {
+    let profits = 0
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] > prices[i - 1]) {
+            profits += prices[i] - prices[i - 1]
+        }
+    }
+    return profits
+}
