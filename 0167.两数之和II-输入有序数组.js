@@ -32,28 +32,33 @@ var twoSum = function(numbers, target) {
     return twoPointer(numbers, target)
 };
 
+// 时间复杂度O(n^2)
 function bructForce(numbers, target) {
     for (let i = 0; i < numbers.length - 1; i++) {
         for (let j = i+1; i < numbers.length; j++) {
             if (numbers[i] + numbers[j] === target) {
-                return [i, j]
+                return [i+1, j+1]
             }
         }
     }
 }
 
+// 时间复杂度O(n)
+// 空间复杂度O(n)
 function mapping(numbers, target) {
     let map = new Map()
     map.set(numbers[0], 0)
     for (let i = 1; i < numbers.length; i++) {
         let minus = target - numbers[i]
         if (map.has(minus)) {
-            return [map.get(minus), i]
+            return [map.get(minus)+1, i+1]
         } 
         map.set(numbers[i], i)
     }
 }
 
+// 时间复杂度O(n)
+// 空间复杂度O(1)
 function twoPointer(numbers, target) {
     let lp = 0,
         rp = numbers.length - 1
@@ -61,7 +66,7 @@ function twoPointer(numbers, target) {
     while (lp < rp) {
         let sum = numbers[lp] + numbers[rp]
         if (sum === target) {
-            return [lp, rp]
+            return [lp+1, rp+1]
         } else if (sum > target) {
             rp--
         } else {
